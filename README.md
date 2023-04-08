@@ -25,9 +25,9 @@
 
 ## Tarefas em aberto
 
-:memo: Edição e exclusão de usuários
+:memo: Inativação de tutores, abrigos e pets
 
-:memo: Validação das regras de negócio
+:memo: Rota para cadastro/login
 
 :memo: Upload de fotos
 
