@@ -23,6 +23,9 @@ class RepositorioPet():
     def read(self):
         return self.db.query(models.Pet).all()
     
+    def read_by_id(self, id_pet:int):
+        return self.db.query(models.Pet).filter(models.Pet.id==id_pet).first()    
+    
     def update(self, id_pet:int, novos_dados:dict):
         pet_atualizado = self.db.query(models.Pet).filter(models.Pet.id == id_pet).first()
         for chave, valor in novos_dados.items():

@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter,  HTTPException
 from fastapi import Depends
 from src.infra.sqlalchemy.config.database import get_db
 from src.schemas import schemas
@@ -20,7 +20,10 @@ def lista_tutores(db:Session = Depends(get_db)):
 
 @router.get('/tutores/{id_tutor}', response_model=schemas.TutorBase)
 def busca_por_id(id_tutor:int, db:Session = Depends(get_db)):
-    return RepositorioTutor(db).read_by_id(id_tutor=id_tutor)
+    tutor_localizado = RepositorioTutor(db).read_by_id(id_tutor=id_tutor)
+    if not tutor_localizado:
+        raise HTTPException(status_code=404, detail=f"Tutor com o id {id_tutor} não existe")
+    return tutor_localizado
 
 @router.put('/tutores/{id_tutor}', response_model=schemas.TutorBase)
 def atualiza_tutores(id_tutor:int, novos_dados:dict, db:Session = Depends(get_db)):
