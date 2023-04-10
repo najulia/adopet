@@ -21,7 +21,6 @@ class RepositorioPet():
         return db_pet
 
     def read(self):
-<<<<<<< HEAD
         return self.db.query(models.Pet).all()
     
     def update(self, id_pet:int, novos_dados:dict):
@@ -30,6 +29,3 @@ class RepositorioPet():
             setattr(pet_atualizado, chave, valor)
         self.db.commit()
         return pet_atualizado
-=======
-        return self.db.query(models.Pet).all()
->>>>>>> bcab1bd5ddba8e21bcc66da42c222b5804ddfc43

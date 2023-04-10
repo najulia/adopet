@@ -19,7 +19,6 @@ class RepositorioAbrigo():
         return db_abrigo
 
     def read(self):
-<<<<<<< HEAD
         return self.db.query(models.Abrigo).all()
     
     def update(self, id_abrigo:int, novos_dados:dict):
@@ -28,6 +27,3 @@ class RepositorioAbrigo():
             setattr(abrigo_atualizado, chave, valor)
         self.db.commit()
         return abrigo_atualizado    
-=======
-        return self.db.query(models.Abrigo).all()
->>>>>>> bcab1bd5ddba8e21bcc66da42c222b5804ddfc43
