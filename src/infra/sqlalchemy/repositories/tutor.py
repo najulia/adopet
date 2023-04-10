@@ -23,8 +23,8 @@ class RepositorioTutor():
     def read(self):
         return self.db.query(models.Tutor).all()
 
-    def read_by_id(self):
-        pass
+    def read_by_id(self, id_tutor:int):
+        return self.db.query(models.Tutor).filter(models.Tutor.id==id_tutor).first()
 
     def update(self, id_tutor:int, novos_dados:dict):
         tutor_atualizado = self.db.query(models.Tutor).filter(models.Tutor.id == id_tutor).first()
